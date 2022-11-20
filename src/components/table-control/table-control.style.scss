@@ -1,0 +1,26 @@
+@import 'utils/design';
+
+.table-control {
+	@include flex-row;
+	width: 100%;
+
+	div {
+		@include flex-row;
+		flex: 1;
+
+		.arrow {
+			margin: 0 0.5rem;
+			padding: 0.25rem 0.75rem;
+			font-weight: 900;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	.table-summary {
+		justify-content: space-around;
+		flex: 1;
+	}
+}
