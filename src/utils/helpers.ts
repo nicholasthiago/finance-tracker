@@ -1,4 +1,4 @@
-import { Category, Item } from 'types/types';
+import { Types, Item } from 'types/types';
 import { types } from 'data/data';
 
 // -------------------------------------- //

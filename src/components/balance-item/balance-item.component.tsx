@@ -6,7 +6,7 @@ type Props = {
 }
 
 const BalanceItem = ({ title, value } : Props ) => {
-	let txtColor = ( value < 0 ) ? 'tw-text-red-600' : 'tw-text-green-600' ;
+	let txtColor = ( value < 0 ) ? 'tw-text-red-800' : 'tw-text-green-700' ;
 	let formattedValue = value.toLocaleString(	 'default', { style	:'currency'	, currency	:'CAD'	});
 
 	return (

@@ -32,7 +32,7 @@ const TableControl = ({ date, income, expense, onMonthChange }: Props ) => {
 	};
 
 	return (
-		<Container className={'table-control tw-my-4'}>
+		<Container className={'table-control'}>
 
 			<div className={' tw-flex tw-flex-row'}>
 				<span className={'arrow tw-bg-slate-300 tw-rounded tw-mx'}

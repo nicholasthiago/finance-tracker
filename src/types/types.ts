@@ -5,7 +5,7 @@ export type Item = {
 	value	: number	;
 }
 
-export type Category = {
+export type Types = {
 	[ key: string ]: {
         title	: string	;
         color	: string	;

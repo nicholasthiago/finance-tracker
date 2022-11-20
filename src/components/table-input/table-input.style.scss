@@ -1,0 +1,17 @@
+@import 'utils/design';
+
+.table-input {
+	@include flex-col;
+
+	.input-group {
+		@include flex-row;
+
+		> div {
+			flex: 1;
+		}
+	}
+
+	.input-submit {
+		@include flex-col;
+	}
+}

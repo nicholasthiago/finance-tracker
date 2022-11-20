@@ -2,7 +2,7 @@
 // --- Data Simulation for App to Run --- //
 // -------------------------------------- //
 
-import { Category, Item } from 'types/types';
+import { Types, Item } from 'types/types';
 
 export const tableHeader : Item = {
 	date	: new Date(  ),
@@ -11,7 +11,7 @@ export const tableHeader : Item = {
 	value	: 1.00,
 };
 
-export const items : Item[] = [
+export const items : Item [] = [
 	{
 		date	: new Date( 2022, 10, 15 ),
 		type	: "food",
@@ -21,27 +21,27 @@ export const items : Item[] = [
 		date	: new Date( 2022, 10, 15 ),
 		type	: "salary",
 		title	: "Bulls",
-		value	: 44.90
+		value	: 1720.00
 	},{
 		date	: new Date( 2022, 10, 15 ),
 		type	: "rent",
-		title	: "Metropolitan",
-		value	: 1395.00
+		title	: "Building Name",
+		value	: 1200.00
 	},{
 		date	: new Date( 2022, 10, 15 ),
 		type	: "food",
-		title	: "Fionn McColl's",
+		title	: "Restaurant",
 		value	: 26.90
 	},{
 		date	: new Date( 2022, 11, 15 ),
 		type	: "food",
-		title	: "Fionn McColl's",
+		title	: "Restaurant",
 		value	: 26.90
 	},
 ];
 
 
-export const types: Category = {
+export const types: Types = {
 	food: {
 		title	: 'Food'	,
 		color	: 'red'		,

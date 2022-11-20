@@ -15,8 +15,6 @@ const typeTag = ( key: string ) => {
 	let tagColor = 'tw-bg-' + types[key].color + '-500';
 	let tagStyle = `tw-font-medium tw-text-white rounded `;
 
-	console.log( tagColor );
-
 	return (
 		<div className={ tagStyle + ' ' + tagColor }>
 			{ types[key].title }
@@ -33,21 +31,21 @@ const tablePopulator = ( items: Item[] ) => {
 
 		return (
 			<tr key={ key }>
-				<td>
-					{ date	} </td>
-				<td className={'tw-capitalize'}>
-					{ typeTag( item.type )	} </td>
-				<td>
-					{ item.title	} </td>
+				<td> { date	} </td>
+
+				<td className={'tw-capitalize'}> { typeTag( item.type )	} </td>
+
+				<td> { item.title } </td>
+
 				<td className={`${expense} tw-text-end`}>
-					{ value.replace('CA$','') } </td>
+					<h6 className={'tw-pr-2'}> { value.replace('CA$','') } </h6>
+				</td>
 			</tr>
 		);
 	});
 };
 
 // Table View component
-
 type Props = {
 	header	: Item	,
 	list	: Item[],
@@ -55,7 +53,7 @@ type Props = {
 
 const TableView = ({ header, list }: Props ) => {
 	return (
-		<Table className={'table-view'} bordered hover >
+		<Table className={'table-view'} hover >
 			<thead>
 				<tr>
 					{ tableHeader( header ) }

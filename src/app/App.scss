@@ -19,8 +19,15 @@
 	.page-main {
 		width: 100%;
 
-		.table-view, .table-control {
+		.table-view, .table-input, .table-control {
+			margin: 0 0 1.25rem 0;
 			width: 100%;
+			box-shadow: 0 0 8px #DDD;
+			border-radius: 0.25rem;
+		}
+
+		.table-input, .table-control {
+			padding: 0.75rem 0.75rem;
 		}
 	}
 }
