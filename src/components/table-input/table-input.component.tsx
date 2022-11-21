@@ -1,3 +1,5 @@
+import './table-input.style.scss';
+
 import { types } from 'data/data';
 import { Types, Item } from 'types/types';
 import { useEffect, useState } from 'react';
@@ -31,7 +33,7 @@ const TableInput = ({ onItemInput }: Props ) => {
 		return (
 			<Form.Select size={'sm'} onChange={ e => setType(( e.target.value ).toLowerCase() )} >
 
-				<option> {'Select type'} </option>
+				<option> {'Type'} </option>
 
 				{	Object.values( types ).map( ( type,i ) => {
 						return ( <option key={ i }> { type.title } </option> );
@@ -54,7 +56,7 @@ const TableInput = ({ onItemInput }: Props ) => {
 	return (
 		<Container className={'table-input'} >
 
-			<div className={'input-group tw-justify-around'}>
+			<div className={'input-group'}>
 				<div className={'item-date'	}>
 					<Form.Control type={'date'} size={'sm'}
 						onChange={ e => setDate( new Date( e.target.value ) )}

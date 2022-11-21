@@ -44,17 +44,17 @@ export const items : Item [] = [
 export const types: Types = {
 	food: {
 		title	: 'Food'	,
-		color	: 'red'		,
+		color	: '#ef4444'		,
 		expense	: true		,
 	},
 	rent: {
 		title	: 'Rent'	,
-		color	: 'orange'	,
+		color	: '#10b981'	,
 		expense	: true		,
 	},
 	salary: {
 		title	: 'Salary'	,
-		color	: 'green'	,
+		color	: '#84cc16'	,
 		expense	: false		,
 	},
 };

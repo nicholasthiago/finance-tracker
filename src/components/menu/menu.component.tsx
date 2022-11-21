@@ -26,9 +26,10 @@ const menuConstructor = ( ref: MenuRef ) =>
 
 const Menu = ({ dark = false } : MenuProps ) => {
 	return (
-		<Navbar className={'page-menu'}
+		<Navbar className={'page-menu tw-bg-white'}
 			fixed={'top'}
 			expand={'md'}
+			style={{ boxShadow:'4px 0 8px #DDD' }}
 		>
 			<Container>
 

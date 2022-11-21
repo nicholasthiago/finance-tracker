@@ -5,10 +5,22 @@
 
 	.input-group {
 		@include flex-row;
+		gap: 0.5rem;
 
-		> div {
-			flex: 1;
+		.item-date	{ flex: 0.8	}
+		.item-type	{ flex: 2.0	}
+		.item-title	{ flex: 4.0	}
+		.item-value	{ flex: 2.0	}
+
+		> div.item-date {
+			width: 36px !important;
+
+			> input.form-control {
+				width: 36px !important;
+			}
 		}
+
+		// @media ( width < 768px ) { @include flex-col }
 	}
 
 	.input-submit {

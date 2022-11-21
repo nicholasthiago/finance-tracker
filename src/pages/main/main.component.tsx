@@ -57,7 +57,7 @@ const Main = () => {
 
 			{/* Input Zone		*/}
 			<TableInput
-				onItemInput={ handle_itemInput }
+				onItemInput={ () => handle_itemInput }
 			/>
 
 			{/* Finance Table	*/}
@@ -65,7 +65,6 @@ const Main = () => {
 				header={ tableHeader }
 				list={ filteredList }
 			/>
-
 
 		</div>
 	);

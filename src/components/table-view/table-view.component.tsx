@@ -12,11 +12,13 @@ const tableHeader = ( item: Item ) => {
 
 const typeTag = ( key: string ) => {
 
-	let tagColor = 'tw-bg-' + types[key].color + '-500';
+	// let tagColor = types[key].color;
 	let tagStyle = `tw-font-medium tw-text-white rounded `;
 
 	return (
-		<div className={ tagStyle + ' ' + tagColor }>
+		<div className={ tagStyle }
+			style={{ background:types[key].color }}
+		>
 			{ types[key].title }
 		</div>
 	)
