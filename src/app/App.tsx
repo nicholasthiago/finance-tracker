@@ -14,7 +14,7 @@ const App = () => {
 			<Menu />
 
 			<Routes>
-				<Route path={'/'} element={ <Main /> } />
+				<Route path={'/finance-tracker/'} element={ <Main /> } />
 			</Routes>
 
 		</div>
