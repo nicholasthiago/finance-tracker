@@ -36,13 +36,13 @@ const TableControl = ({ date, income, expense, onMonthChange }: Props ) => {
 
 			<div className={' tw-flex tw-flex-row'}>
 				<span className={'arrow tw-bg-slate-300 tw-rounded tw-mx'}
-					onMouseDown={ () => console.log( setCurrentMonth( date, 'prev')) }
+					onMouseDown={ () => setCurrentMonth( date, 'prev') }
 				> {'<'} </span>
 				
 				<span className={'tw-mx-2'}> { month + ', ' + year }	</span>
 				
 				<span className={'arrow tw-bg-slate-300 tw-rounded'}
-					onMouseDown={ () => console.log( setCurrentMonth( date, 'next')) }
+					onMouseDown={ () => setCurrentMonth( date, 'next') }
 				> {'>'} </span>
 			</div>
 

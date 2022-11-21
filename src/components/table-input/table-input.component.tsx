@@ -16,8 +16,8 @@ const TableInput = ({ onItemInput }: Props ) => {
 
 	const [ currItem, setCurrItem ] = useState({
 		date	: new Date(),
-		type	: ""	,
-		title	: ""	,
+		type	: ''	,
+		title	: ''	,
 		value	: 0.00
 	});
 
@@ -26,8 +26,39 @@ const TableInput = ({ onItemInput }: Props ) => {
 	const [ title, setTitle	] = useState( ''	);
 	const [ value, setValue	] = useState( 0.00	);
 
-	const setItemInput = () => onItemInput( currItem );
+	let typeList: string[] = Object.keys( types );
 
+	const setItemInput = () => {
+		let errors: string[] = [];
+
+		if ( value <= 0 ) 					errors.push('Invalid value'			);
+		if ( title === '' ) 				errors.push('Empty title field'		);
+		if ( isNaN( date.getTime()) ) 		errors.push('Invalid date selected'	);
+		if ( !typeList.includes( type ) ) 	errors.push('Invalid type selected'	);
+	
+		if ( errors.length > 0 ) {
+			alert( errors.join('\n') );
+		} else {
+
+		};
+
+		setCurrItem({
+			date	: date	,
+			type	: type	,
+			title	: title	,
+			value	: value	,
+		});
+
+		onItemInput( currItem )
+		clearInput();
+	};
+
+	const clearInput = () => {
+		setDate(  new Date() );
+		setType(  ''	);
+		setTitle( ''	);
+		setValue( 0.00	);
+	};
 
 	const selector_Type = ( types: Types ) => {
 		return (
@@ -83,7 +114,7 @@ const TableInput = ({ onItemInput }: Props ) => {
 			<div className={'item-submit tw-pt-3'}>
 				<Button size={'sm'}
 					className={'!tw-bg-slate-500 !tw-border-slate-500 !tw-px-10 !tw-py-1'}
-					onMouseDown={ () => setItemInput() }
+					onMouseDown={ setItemInput }
 				> {'Add Item'} </Button>
 			</div>
 

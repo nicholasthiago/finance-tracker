@@ -6,7 +6,7 @@ import { Item } from 'types/types';
 
 import TableView from 'components/table-view/table-view.component';
 
-import { tableHeader, items, types } from 'data/data';
+import { tableHeader, items } from 'data/data';
 import TableControl from 'components/table-control/table-control.component';
 import TableInput from 'components/table-input/table-input.component';
 
@@ -14,7 +14,6 @@ import TableInput from 'components/table-input/table-input.component';
 const Main = () => {
 
 	const [ list	, setList		] = useState( items	);
-	const [ type	, setType		] = useState( types	);
 	const [ balance	, setBalance	] = useState([ 0,0 ]);
 
 	const [ filteredList, setFilteredList ] = useState< Item [] >( [] );
@@ -27,14 +26,14 @@ const Main = () => {
 
 	useEffect( () => {
 		setBalance( getFinanceBalance( filteredList ));
-	}, [ filteredList ] );
+	}, [ filteredList, setFilteredList ] );
 
 
 	// handle effects and changes
 	const handle_monthChange	= ( newMonth : string	) => setCurrentMonth( newMonth );
 	const handle_itemInput		= ( item	 : Item		) => {
 
-		let updatedList = list;
+		let updatedList = [ ...list ];
 		updatedList.push( item );
 
 		setList( updatedList );
@@ -57,7 +56,7 @@ const Main = () => {
 
 			{/* Input Zone		*/}
 			<TableInput
-				onItemInput={ () => handle_itemInput }
+				onItemInput={ handle_itemInput }
 			/>
 
 			{/* Finance Table	*/}
