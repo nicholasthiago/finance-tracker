@@ -26,7 +26,7 @@ const Main = () => {
 
 	useEffect( () => {
 		setBalance( getFinanceBalance( filteredList ));
-	}, [ filteredList, setFilteredList ] );
+	}, [ filteredList ] );
 
 
 	// handle effects and changes

@@ -24,7 +24,7 @@ const TableInput = ({ onItemInput }: Props ) => {
 	const [ date , setDate	] = useState( new Date() );
 	const [ type , setType	] = useState( ''	);
 	const [ title, setTitle	] = useState( ''	);
-	const [ value, setValue	] = useState( 0.00	);
+	const [ value, setValue	] = useState( 0		);
 
 	let typeList: string[] = Object.keys( types );
 
@@ -38,31 +38,33 @@ const TableInput = ({ onItemInput }: Props ) => {
 	
 		if ( errors.length > 0 ) {
 			alert( errors.join('\n') );
-		} else {
 
+		} else {
+			setCurrItem({
+				date	: date	,
+				type	: type	,
+				title	: title	,
+				value	: value	,
+			});
+	
+			onItemInput( currItem )
+			clearInput();
 		};
 
-		setCurrItem({
-			date	: date	,
-			type	: type	,
-			title	: title	,
-			value	: value	,
-		});
-
-		onItemInput( currItem )
-		clearInput();
 	};
 
 	const clearInput = () => {
 		setDate(  new Date() );
 		setType(  ''	);
 		setTitle( ''	);
-		setValue( 0.00	);
+		setValue( 0		);
 	};
 
 	const selector_Type = ( types: Types ) => {
 		return (
-			<Form.Select size={'sm'} onChange={ e => setType(( e.target.value ).toLowerCase() )} >
+			<Form.Select size={'sm'}
+				onChange={ e => setType(( e.target.value ).toLowerCase() )}
+			>
 
 				<option> {'Type'} </option>
 
@@ -99,14 +101,16 @@ const TableInput = ({ onItemInput }: Props ) => {
 				</div>
 
 				<div className={'item-title'}>
-					<Form.Control placeholder={'Title'} size={'sm'}
+					<Form.Control placeholder={'Title'} size={'sm'} value={ title }
 						onInput={ e => setTitle(( e.target as HTMLInputElement ).value )}
 					/>
 				</div>
 
 				<div className={'item-value'}>
-					<Form.Control type={'number'} name={'price'} size={'sm'} placeholder={'Value'}
-						onInput={ e => setValue( parseInt(( e.target as HTMLInputElement ).value ))}
+					<Form.Control type={'number'} size={'sm'}
+						placeholder={'Value'}
+						step={'0.01'} min={ 0 } value={ value }
+						onInput={ e => setValue( parseFloat(( e.target as HTMLInputElement ).value ))}
 					/>
 				</div>
 			</div>
