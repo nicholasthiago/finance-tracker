@@ -56,3 +56,10 @@ export const getFinanceBalance = ( list: Item[] ) => {
 
 	return [ income, expense ];
 };
+
+
+export const getPath = ( route: string ) => {
+	let appRef = '/finance-tracker';
+
+	return appRef + route ;
+};

@@ -1,30 +1,33 @@
-import React from 'react';
-
 import {
 	Nav			,
 	Navbar		,
 	Container,	} from 'react-bootstrap';
 import { LinkContainer as Link } from 'react-router-bootstrap';
+import { getPath } from 'utils/helpers';
 
-import { MenuProps, MenuRef, menu_ref } from './menu.reference';
+import { MenuRef, menu_ref } from './menu.reference';
 
 
 const menuConstructor = ( ref: MenuRef ) =>
-	Object.values( ref ).map( ( option, i ) => {
-		return (
-			<Link to={ option.route } key={ i }>
+	Object.values( ref ).map( ( option, i ) =>
+		( !option.external )
+		? (	<Link to={ option.route } key={ i } >
 				<Nav.Link href={ option.route }
 					className={ `menu-item-${ option.title }` }
-					onMouseDown={ () => console.log( option.route ) }
+					onMouseDown={ () => console.log( getPath( option.route )) }
 				>
 					{ option.title }
 				</Nav.Link>
 			</Link>
-		);
-	});
+		) : (
+			<Nav.Link className={ `menu-item-${ option.title }` }
+				onMouseDown={ () => window.location.href = option.route }
+			> { option.title } </Nav.Link>
+		)
+	);
 
 
-const Menu = ({ dark = false } : MenuProps ) => {
+const Menu = () => {
 	return (
 		<Navbar className={'page-menu tw-bg-white'}
 			fixed={'top'}
@@ -33,7 +36,7 @@ const Menu = ({ dark = false } : MenuProps ) => {
 		>
 			<Container>
 
-				<Link to={'/'}>
+				<Link to={ getPath('/') } className={'!tw-mr-8'}>
 					<Navbar.Brand> {'Finance Tracker'} </Navbar.Brand>
 				</Link>
 

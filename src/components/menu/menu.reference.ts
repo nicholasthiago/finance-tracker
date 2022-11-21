@@ -3,6 +3,7 @@ export type MenuRef = {
 	[ key: string ]: {
 		title	: string	;
 		route	: string	;
+		external: boolean	;
 	}
 };
 
@@ -12,25 +13,34 @@ export interface MenuProps {
 }
 
 // Menu Reference
+const appRef = '/finance-tracker';
+
 export const menu_ref: MenuRef = {
 	home	: {
-		title: 'Home'		,
-		route: '/'			,
+		title		: 'Home'	,
+		external	: false		,
+		route		: appRef + '/'	,
 	},
+	about	: {
+		title		: 'About'	,
+		external	: false		,
+		route		: appRef + '/about'	,
+	},
+	github	: {
+		title		: 'GitHub'	,
+		external	: true		,
+		route		: 'https://github.com/nicholasthiago/finance-tracker'	,
+	},
+	/*
 	month	: {
 		title: 'By Month'	,
+		external: false		,
 		route: '/month'		,
 	},
 	year	: {
 		title: 'By Year'	,
+		external: false		,
 		route: '/year'		,
 	},
-	about	: {
-		title: 'About'	,
-		route: '/about'	,
-	},
-	github	: {
-		title: 'GitHub'	,
-		route: '/git'	,
-	},
+	*/
 };
